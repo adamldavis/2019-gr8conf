@@ -14,19 +14,21 @@ println "2^2 = ${square(2)}"
 // METHOD REF
 
 section "Method Refs"
-def sq(x) { x*x }
+def add1(x) { x + 1 }
 
-def groovyStyle = (1..12).collect( this.&sq )
+def groovyStyle = (1..12).collect( this.&add1 )
 
-println groovyStyle
+println "groovyStyle=$groovyStyle"
 
-def squares = (1..12).collect( this::sq ) // this.&sq
+def javaStyle = (1..12).collect( this::add1 ) // this.&add1
 
-println "squares=$squares"
+println "javaStyle=$javaStyle"
 
 // Constructor REF
 section "Constructor Refs"
 def newDate = Date::new
-def dates = squares.collect(newDate)
+def dates = (1..12).collect(newDate)
 
 println "dates.size=${dates.size}"
+
+
