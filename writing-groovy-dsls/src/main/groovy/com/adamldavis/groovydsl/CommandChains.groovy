@@ -2,6 +2,8 @@ package com.adamldavis.groovydsl
 
 import groovy.transform.CompileStatic
 import groovy.transform.MapConstructor
+import groovy.transform.NamedParam
+import groovy.transform.NamedParams
 import groovy.transform.ToString
 
 /**
@@ -37,7 +39,14 @@ class CommandChains {
     /** Groovy allows special syntax for a Map parameter which allows:
      * <code>task key: value, key2: value2</code>.
      */
-    Task task(Map map) {
+    Task task(@NamedParams([ // NamedParams describes the possible named parameters
+        @NamedParam(value = "name", type = String.class),
+        @NamedParam(value = "type", type = Class.class),
+        @NamedParam(value = "doLast", type = Closure.class),
+        @NamedParam(value = "doFirst", type = Closure.class),
+        @NamedParam(value = "depends", type = List.class)
+    ]) Map<String, Object> map)
+    {
         def task = new Task(map)
         tasks << task
         task
