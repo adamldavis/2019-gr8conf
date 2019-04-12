@@ -21,8 +21,10 @@ class Dragon {
      */
     static Dragon createDragon(@DelegatesTo(value = DragonBuilder, strategy = Closure.DELEGATE_FIRST)
                                  Closure<Dragon> closure) {
+        def builder = new DragonBuilder()
         closure.resolveStrategy = Closure.DELEGATE_FIRST
-        new DragonBuilder().with(closure)
+        closure.delegate = builder
+        closure()
     }
 
     int age

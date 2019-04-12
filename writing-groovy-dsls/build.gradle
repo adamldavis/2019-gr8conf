@@ -19,6 +19,7 @@ repositories {
 
 dependencies {
 	compile "org.codehaus.groovy:groovy-all:$groovyVersion"
+	compile "com.google.guava:guava:27.0-jre"
 
 	testCompile 'junit:junit:4.12'
 	testCompile 'org.hamcrest:hamcrest-all:1.3'

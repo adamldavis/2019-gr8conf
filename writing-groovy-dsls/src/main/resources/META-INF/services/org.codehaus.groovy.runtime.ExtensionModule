@@ -1,4 +1,4 @@
 moduleName=adamldavis-groovy-dsl-example
 moduleVersion=0.1-beta1
-extensionClasses=
-staticExtensionClasses=
+extensionClasses=com.adamldavis.groovydsl.MyDSLExtension
+staticExtensionClasses=com.adamldavis.groovydsl.MyStaticDSLExtension
