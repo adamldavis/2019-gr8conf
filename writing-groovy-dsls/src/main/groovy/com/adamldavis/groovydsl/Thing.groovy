@@ -10,16 +10,15 @@ class Thing implements Comparable {
         new Thing(name: name + "<<" + t.name)
     }
     def plus(Thing t) {
-        new Thing(name: name + " ++ " + t.name)
+        new Thing(name: name + " + " + t.name)
     }
     def minus(Thing t) {
-        new Thing(name: name + " -- " + t.name)
+        new Thing(name: name + " - " + t.name)
     }
     Thing bitwiseNegate() { new Thing(name: name + "~") }
 
     def call(Thing other) {
-        println "call $other"
-        this
+        "$name call $other"
     }
     String toString() {name}
 
