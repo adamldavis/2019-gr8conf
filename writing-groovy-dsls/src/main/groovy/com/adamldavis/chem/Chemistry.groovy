@@ -12,12 +12,12 @@ import groovy.transform.CompileStatic
 class Chemistry {
 
 	/** Calls given closure using Chemistry as delegate. */
-	static void exec(@DelegatesTo(Chemistry) Closure block) {
+	static Object exec(@DelegatesTo(Chemistry) Closure block) {
 		block.delegate = new Chemistry()
 		block()
 	}
 
-	static void calc(@DelegatesTo(Chemistry) Closure block) { exec(block) }
+	static Object calc(@DelegatesTo(Chemistry) Closure block) { exec(block) }
 
 	/** Creates either a Compound (or Element if only one) based on arbitrary text. */
 	def propertyMissing(String name) {

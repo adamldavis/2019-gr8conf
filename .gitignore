@@ -4,6 +4,7 @@
 .idea
 *.iws
 *.ipr
+*.iml
 *.class
 */build/
 # Ignore Gradle GUI config
