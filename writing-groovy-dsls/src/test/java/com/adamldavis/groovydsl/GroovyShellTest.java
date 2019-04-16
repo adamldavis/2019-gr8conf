@@ -50,9 +50,23 @@ public class GroovyShellTest {
 
         Object object = shell.evaluate(file);
 
-        assertEquals("groovy test", shell.getContext().getVariables().get("name"));
+        assertEquals("gr8conf build", shell.getContext().getVariables().get("name"));
         assertEquals(CommandChains.Task.class, object.getClass());
         assertEquals("build", ((CommandChains.Task) object).getName());
+
+        final Pachyderm singleton = Pachyderm.SINGLETON.get();
+
+        assertEquals(2, singleton.getTasks().size());
+        assertEquals("test", singleton.getTasks().get(0).getName());
+        assertTrue(singleton.getTasks().get(0).getDepends().contains("clean"));
+        assertTrue(singleton.getTasks().get(0).getDepends().contains("build"));
+        assertNotNull(singleton.getTasks().get(0).getDoFirst());
+        assertNull(singleton.getTasks().get(0).getDoLast());
+        assertNotNull(singleton.getTasks().get(1).getDoLast());
+
+        System.out.println("--\n");
+        singleton.getTasks().get(1).getDoLast().call();
+        System.out.println("--\n");
     }
 
 }
