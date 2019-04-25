@@ -6,13 +6,18 @@ import akka.stream.ActorMaterializer
 import akka.stream.Materializer
 import akka.stream.javadsl.Source
 
+import java.util.concurrent.CompletableFuture
+
 final ActorSystem system = ActorSystem.create("squares") // 1
 final Materializer mat = ActorMaterializer.create(system) // 2
 
 List<Integer> squares = new ArrayList<>()
 
-Source.from([1,2,3])
-        .map {v -> v * v}
+Source.from([0,1,2,3,4,5])
+        .filter { it > 0 }
+        .take(4)
+        .map { v-> v*v }
+        //.mapAsync(4) {v -> CompletableFuture.supplyAsync{ v*v }}
         .runForeach(squares.&add, mat)
 
 Thread.sleep(300)

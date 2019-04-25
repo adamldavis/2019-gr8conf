@@ -8,10 +8,12 @@ String thread1 = ''
 String thread2 = ''
 List<Integer> squares = new ArrayList<>()
 
-Flowable.just(1,2,3)
-        .subscribeOn(Schedulers.single()) // sets the initial thread
-        .map{ i -> thread1 = Thread.currentThread().name; i*i }
+Flowable.just(0,1,2,3,4,5)
+        .subscribeOn(Schedulers.single()) // sets the initial thread(s)
+        .filter { thread1 = Thread.currentThread().name; it > 0 }
+        .take(4)
         .observeOn(Schedulers.computation()) // sets threads downstream
+        .map{ i -> i*i }
         .doOnNext { thread2 = Thread.currentThread().name }
         .subscribe {
             squares.add(it)
