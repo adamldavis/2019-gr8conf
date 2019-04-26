@@ -1,0 +1,30 @@
+plugins {
+	id "java"
+	id "groovy"
+	id "maven"
+	id "publishing"
+}
+version = '0.2'
+
+// run "gradle uploadArchives"
+uploadArchives {
+	repositories {
+		mavenDeployer {
+			// developers: change root to your own home-dir
+			repository(url: "file:///home/adavis/.m2/repository/")
+			pom.groupId = 'com.adamldavis'
+			pom.artifactId = 'shapes'
+		}
+	}
+}
+repositories {
+	mavenLocal()
+	jcenter() 
+}
+ext {
+	groovyVersion = '2.5.6'
+}
+
+dependencies {
+	compile "org.codehaus.groovy:groovy-all:$groovyVersion"
+}

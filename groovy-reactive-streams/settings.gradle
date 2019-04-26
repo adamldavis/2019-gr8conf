@@ -1,0 +1,4 @@
+rootProject.name = 'groovy-reactive-streams'
+
+include 'shapes'
+

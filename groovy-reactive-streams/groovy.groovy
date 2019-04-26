@@ -1,11 +1,17 @@
-
 // just plain Groovy
 
-List<Integer> squares = []
+@Grab('com.adamldavis:shapes:0.2')
+import shapes.*
 
-[0,1,2,3,4,5]
-        .findAll { it > 0 }[0..<4]
-        .collect { v-> v*v }
-        .each { squares.add it }
+List stars = []
 
-println "squares=$squares"
+def shapes = ShapeWithColor.shapes
+
+println "shapes = ${shapes}\n"
+
+shapes
+        .findAll { it.shape == Shape.ST }[0..<3]
+        .collect { v -> v.toString() }
+        .each { stars.add it }
+
+println "stars=$stars"
