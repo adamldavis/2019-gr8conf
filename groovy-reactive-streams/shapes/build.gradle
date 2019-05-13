@@ -4,7 +4,7 @@ plugins {
 	id "maven"
 	id "publishing"
 }
-version = '0.2'
+version = '0.5.1'
 
 // run "gradle uploadArchives"
 uploadArchives {
@@ -26,5 +26,5 @@ ext {
 }
 
 dependencies {
-	compile "org.codehaus.groovy:groovy-all:$groovyVersion"
+	compileOnly "org.codehaus.groovy:groovy-all:$groovyVersion"
 }

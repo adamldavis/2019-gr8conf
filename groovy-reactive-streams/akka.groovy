@@ -1,5 +1,5 @@
 
-@Grab('com.adamldavis:shapes:0.2')
+@Grab('com.adamldavis:shapes:0.5.1')
 @Grab('com.typesafe.akka:akka-stream_2.12:2.5.12')
 
 import shapes.*
@@ -15,8 +15,12 @@ final Materializer mat = ActorMaterializer.create(system) // 2
 
 List stars = []
 
-Source.from(ShapeWithColor.shapes)
-        .filter { it.shape == Shape.ST }
+def shapes = ShapeWithColor.randomShapes()
+
+println "shapes = ${shapes}\n"
+
+Source.from(shapes)
+        .filter { it.shape.isStar() }
         .take(3)
         .map { v-> v.toString() }
         //.mapAsync(4) {v -> CompletableFuture.supplyAsync{ v.toString() }}

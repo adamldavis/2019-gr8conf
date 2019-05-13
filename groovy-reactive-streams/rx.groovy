@@ -1,5 +1,5 @@
 
-@Grab('com.adamldavis:shapes:0.2')
+@Grab('com.adamldavis:shapes:0.5.1')
 @Grab('io.reactivex.rxjava2:rxjava:2.1.9')
 
 import shapes.*
@@ -10,11 +10,15 @@ String thread1 = ''
 String thread2 = ''
 List stars = []
 
-Flowable.fromIterable(ShapeWithColor.shapes)
+def shapes = ShapeWithColor.randomShapes()
+
+println "shapes = ${shapes}\n"
+
+Flowable.fromIterable(shapes)
         .subscribeOn(Schedulers.single()) // sets the initial thread(s)
         .filter {
             thread1 = Thread.currentThread().name
-            it.shape == Shape.ST
+            it.shape.isStar()
         }
         .take(3)
         .observeOn(Schedulers.computation()) // sets threads downstream
