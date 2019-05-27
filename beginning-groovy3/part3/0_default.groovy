@@ -11,3 +11,5 @@ SpaceShip.liftOff()
 println '--'
 SpaceShip.liftOff('Falcon Heavy')
 
+//TODO Add another parameter to liftOff with a default value
+

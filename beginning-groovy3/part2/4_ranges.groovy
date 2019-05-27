@@ -17,5 +17,7 @@ println '\n\nsubstring with ranges'
 
 println "\n\nranges with lists"
     def list = ['paul', 'trevor', 'brie', 'michael']
-    println list[0..1, 3] //[hank, john]
+    println list[0..1, 3]
+//TODO Change the above to print out: paul, brie, michael
+
 

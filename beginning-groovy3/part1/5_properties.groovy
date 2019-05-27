@@ -16,6 +16,7 @@ println "name = $vamp.name"
 
 def v2= new Vampire(name: 'Count Dracula', yearBorn: 1897)
 println "v2 = $v2.name"
+//TODO Print out the yearBorn as well
 
 println "properties:"
 println v2.properties // gets map of Properties

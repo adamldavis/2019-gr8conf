@@ -51,4 +51,5 @@ def test = {value ->
 println test("Java")
 println test("Groovy")
 println test("Ruby")
+//TODO Make the switch statement above case insensitive
 

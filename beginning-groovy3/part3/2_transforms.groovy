@@ -42,7 +42,7 @@ def d2 = new Dragon(2, "Smaug")
 def d3 = new Dragon(1000, "Smaug")
 println "\n d2equal? ${d == d2}"
 println "\n d3equal? ${d == d3}"
-
+//TODO Add your own Dragon instance that equals Norbort
 
 //*/
 

@@ -28,5 +28,6 @@ IN_LIST: {
     assert 7 in 0..10
     assert 1 in [1,1,2,3,5,8]
     assert !(1 in [0,2,4])
+    //TODO Create a String array and use it with "in" keyword
 }
 

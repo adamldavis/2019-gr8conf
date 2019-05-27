@@ -38,4 +38,6 @@ def close = { println "close ${name()}" }
 close.delegate = new Bar()
 // methods of delegate are in scope
 close()
+//TODO Add another method and property to Bar and use it in "close" Closure
+
 

@@ -25,8 +25,9 @@ MULTILINE: {
     def x = 1
     def gstring = """
         |This is a multiline 
-        |gstring $x
+        |gstring. x=#x
     """
     println gstring.stripMargin()
+    //TODO Fix the above so it prints x=1
 }
 

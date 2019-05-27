@@ -13,4 +13,4 @@ assert (![])
 
 // null, 0, [], "" === false
 
-
+// TODO use Groovy truth with if/else statement

@@ -17,5 +17,6 @@ name = p.name ?: "none"
 // both Java
 name = (p == null ? null : p.getName()) == null ? "none" : p.getName()
 // both Groovy
-name = p?.name ?: "none"
+//TODO convert the above code the Groovy eqivalent
+println "name=$name"
 

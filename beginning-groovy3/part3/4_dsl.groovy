@@ -40,5 +40,5 @@ t > t2
 println "compareTo :: $t2.name"
 
 t(t3)
-
+//TODO Override multiply
 

@@ -19,11 +19,13 @@ MATH: {
     println('BigD + double is ' + (pi + pie).class)
     
     println "--------------------"
-    println ((1f + 2d).class)
+    println (1f + 2d).class
+    //TODO Fix the above so it does not throw a NullPointerException
 }
 
 TIMES: {
-    3.times { println "everything is an object" }
+    /*3.times*/ { println "everything is an object" }
+    //TODO Uncomment the above line
 }
 
 

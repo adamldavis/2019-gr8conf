@@ -50,6 +50,7 @@ SET2: {
     dragons.add "Norbert"
     dragons += "Balaur"
     dragons << "Feilong"
+    //TODO Subtract something from dragons
     println(dragons)
 }
 

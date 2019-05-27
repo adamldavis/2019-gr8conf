@@ -16,4 +16,4 @@ println "map2=$map2"
 def all = map + map2
 
 println "all=$all"
-
+//TODO Subtract a key/value pair from the map and then print out the map

@@ -22,8 +22,9 @@ println "shapes = ${shapes}\n"
 Source.from(shapes)
         .filter { it.shape.isStar() }
         .take(3)
-        .map { v-> v.toString() }
-        //.mapAsync(4) {v -> CompletableFuture.supplyAsync{ v.toString() }}
+        //.map { v-> v.toString() }
+        .async()
+        .mapAsync(4) {v -> CompletableFuture.supplyAsync{ v.toString() }}
         .runForeach(stars.&add, mat)
 
 Thread.sleep(300)
